@@ -42,5 +42,24 @@ public class UserService {
             System.out.println("-- not registered");
         }
 
+
+    }
+
+    public static void signIn() throws SQLException {
+        System.out.println("enter your username :");
+        String username = scanner.nextLine();
+
+        System.out.println("enter your password :");
+        String password = scanner.nextLine();
+
+        User user = userRepository.findByUsername(username);
+
+        if (user == null){
+            System.out.println("sign in first");
+        } else if (! user.getPassword().equals(password)) {
+            System.out.println("enter correct password");
+        }else {
+            System.out.println("you signed in "+user.getUsername());
+        }
     }
 }

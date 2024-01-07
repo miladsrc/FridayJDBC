@@ -30,7 +30,7 @@ public class Menu {
 
         switch (number) {
             case 1 -> signUp();
-            case 2 -> System.out.println("sign up");
+            case 2 -> signIn();
             case 3 -> System.out.println("exit");
         }
 
@@ -38,5 +38,9 @@ public class Menu {
 
     public void signUp() throws SQLException {
         UserService.signUp();
+    }
+
+    public void signIn() throws SQLException{
+        UserService.signIn();
     }
 }
