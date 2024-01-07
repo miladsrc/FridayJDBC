@@ -4,21 +4,32 @@ public class User {
 
     private int id;
     private String firstName;
-    private String astName;
+    private String lastName;
     private String username;
     private String password;
 
+
+
+    //constructor
     public User() {
     }
 
     public User(int id, String firstName, String astName, String username, String password) {
         this.id = id;
         this.firstName = firstName;
-        this.astName = astName;
+        this.lastName = astName;
         this.username = username;
         this.password = password;
     }
 
+    public User(String firstName, String lastName, String username, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+    }
+
+    //get and set
 
     public int getId() {
         return id;
@@ -37,11 +48,11 @@ public class User {
     }
 
     public String getAstName() {
-        return astName;
+        return lastName;
     }
 
     public void setAstName(String astName) {
-        this.astName = astName;
+        this.lastName = astName;
     }
 
     public String getUsername() {
@@ -60,14 +71,18 @@ public class User {
         this.password = password;
     }
 
+    //method
+    
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", astName='" + astName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
+
+
 }

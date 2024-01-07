@@ -1,10 +1,21 @@
 package org.example;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Menu {
     private final Scanner scanner = new Scanner(System.in);
-    public void publicMenu(){
+    private static final UserService userService;
+
+    static {
+        try {
+            userService = new UserService();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void publicMenu() throws SQLException {
         System.out.println("***welcome***");
         System.out.println("1 - sign up");
         System.out.println("2 - log in");
@@ -13,6 +24,19 @@ public class Menu {
 
         int number = scanner.nextInt();
         scanner.nextLine();
-        System.out.println(number);
+
+
+        //adding switch to choose
+
+        switch (number) {
+            case 1 -> signUp();
+            case 2 -> System.out.println("sign up");
+            case 3 -> System.out.println("exit");
+        }
+
+    }
+
+    public void signUp() throws SQLException {
+        UserService.signUp();
     }
 }
